@@ -20,7 +20,7 @@ const WIN_COMMAND_EXTENSION = IS_WINDOWS ? '.cmd' : '';
 const COMMAND_RELATIVE_PATH = IS_WINDOWS ? '' : './';
 const PROTRACTOR_COMMAND = 'protractor' + WIN_COMMAND_EXTENSION;
 
-const SELENIUM_PID = ' seleniumProcess.pid';
+const SELENIUM_PID = 'selenium process id:';
 const WEB_DRIVER_LOG_STARTED = 'Started org.openqa.jetty.jetty.Server';
 const WEB_DRIVER_LOG_STARTED_NEW = 'Selenium Server is up and running';
 const WEB_DRIVER_LOG_STOPPED = 'Command request: shutDownSeleniumServer';
@@ -149,6 +149,7 @@ module.exports = function (protractorModulePath) {
                 if (seleniumPid) {
                     process.kill(seleniumPid, 'SIGINT');
                 }
+                command.kill();
             };
         },
 
